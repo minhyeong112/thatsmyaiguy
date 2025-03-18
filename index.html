@@ -86,7 +86,8 @@
   <!-- Floating Video -->
   <div id="videoOverlay" class="video-overlay">
     <button class="close-video" onclick="closeVideo()">✖</button>
-    <iframe src="https://www.loom.com/embed/129d875ee7e048adae966b2c300f9b8e?sid=a652881b-0519-4b31-bffd-a314fee89d06"
+    <iframe id="loomVideo" 
+      src="https://www.loom.com/embed/129d875ee7e048adae966b2c300f9b8e?sid=1e8f55f0-0a96-43c3-a62f-4cc273974f15"
       frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
     </iframe>
   </div>
@@ -96,7 +97,16 @@
 
   <script>
     function closeVideo() {
-      document.getElementById("videoOverlay").style.display = "none";
+      let videoModal = document.getElementById("videoOverlay");
+      let videoIframe = document.getElementById("loomVideo");
+
+      // Hide the video overlay
+      videoModal.style.display = "none";
+
+      // Force video to reset by removing and re-adding the src
+      setTimeout(() => {
+        videoIframe.src = videoIframe.src;
+      }, 300); // Small delay to ensure proper reload
     }
   </script>
 
