@@ -1,130 +1,291 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <!-- Standard Favicon -->
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  
-  <!-- PNG Fallback for Browsers that Don't Support SVG Favicons -->
-  <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96">
-  
-  <!-- ICO Fallback for Legacy Browsers -->
-  <link rel="shortcut icon" href="favicon.ico">
-  
-  <!-- Apple Touch Icon (for iPhones/iPads) -->
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  
-  <!-- Web Manifest (For PWA Support) -->
-  <link rel="manifest" href="site.webmanifest">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>That's My AI Guy | Bot Setup Coach</title>
+  <meta name="description" content="That's My AI Guy helps business owners implement a private AI operating system through BotSetupCoach.com." />
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>That's My AI Guy!</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <style>
-    /* Full-page form */
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
+    :root {
+      --bg: #06080b;
+      --card: #10161d;
+      --border: #24323d;
+      --text: #e5edf7;
+      --muted: #96a5b7;
+      --primary: #70dbc2;
+      --primary-2: #9be9d9;
     }
-
-    /* Fullscreen Fillout Form */
-    .form-container {
-      width: 100%;
-      height: 100%;
-      position: relative;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Inter, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
     }
+    a { color: var(--primary-2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-    .fillout-fullscreen {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+    .wrap { width: min(1040px, 92vw); margin: 0 auto; }
+
+    .nav {
+      position: sticky;
+      top: 12px;
+      z-index: 20;
+      margin: 12px auto 0;
+      width: min(1040px, 92vw);
+      border: 1px solid rgba(155, 233, 217, .28);
+      background: rgba(12, 18, 24, .68);
+      backdrop-filter: blur(14px);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 12px;
+      gap: 10px;
     }
-
-    /* Floating Video */
-    .video-overlay {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 300px;
-      height: 170px;
-      background: rgba(0, 0, 0, 0.8);
+    .brand { display: inline-flex; align-items: center; gap: 8px; color: var(--text); font-weight: 700; }
+    .brand:hover { text-decoration: none; }
+    .brand-mark { font-size: 20px; }
+    .links { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+    .links a { color: var(--muted); font-size: 14px; padding: 7px 10px; border-radius: 999px; }
+    .links a:hover { color: var(--text); background: rgba(112, 219, 194, .1); text-decoration: none; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 0;
       border-radius: 10px;
+      padding: 11px 16px;
+      font-weight: 700;
+      background: var(--primary);
+      color: #0c1117;
+      box-shadow: 0 6px 24px rgba(112, 219, 194, .28);
+    }
+    .btn:hover { background: #8de5d3; text-decoration: none; }
+
+    .hero {
+      padding: 96px 0 64px;
+      text-align: center;
+      background: radial-gradient(ellipse at 50% 24%, rgba(112,219,194,.16), transparent 66%);
+    }
+    h1 {
+      font-size: clamp(2rem, 5.5vw, 3.7rem);
+      line-height: 1.1;
+      letter-spacing: -.03em;
+      max-width: 900px;
+      margin: 0 auto 14px;
+    }
+    h1 span { color: var(--primary-2); }
+    .sub {
+      max-width: 780px;
+      margin: 0 auto 28px;
+      color: var(--muted);
+      font-size: clamp(1rem, 2.1vw, 1.15rem);
+    }
+
+    section { padding: 54px 0; }
+    .eyebrow {
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .11em;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: clamp(1.4rem, 3.5vw, 2rem);
+      line-height: 1.2;
+      margin-bottom: 12px;
+      letter-spacing: -.02em;
+    }
+    p { color: var(--muted); margin-bottom: 12px; }
+
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+    }
+    .card h3 { margin-bottom: 8px; font-size: 18px; }
+
+    .project-card {
+      border: 1px solid rgba(155, 233, 217, .32);
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(112,219,194,.08), rgba(112,219,194,.03));
+      padding: 18px;
+    }
+    .project-window {
+      background: #0b1116;
+      border: 1px solid #2a3c49;
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease-in-out;
+      margin: 12px 0 14px;
     }
-
-    .video-overlay iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
+    .project-window-head {
+      height: 34px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 12px;
+      border-bottom: 1px solid #22303a;
+      color: #8aa0b5;
+      font-size: 12px;
     }
+    .dot { width: 8px; height: 8px; border-radius: 999px; background: #334553; }
+    .project-window-body {
+      padding: 18px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      min-height: 140px;
+    }
+    .project-logo { font-size: 32px; margin-bottom: 8px; }
+    .project-name { font-size: 20px; font-weight: 800; letter-spacing: -.01em; }
+    .project-tag { color: var(--muted); font-size: 14px; }
 
-    /* Close Button */
-    .close-video {
-      position: absolute;
-      top: 5px;
-      right: 5px;
-      background: red;
-      color: white;
-      border: none;
-      width: 25px;
-      height: 25px;
-      font-size: 16px;
-      cursor: pointer;
-      border-radius: 50%;
+    .contact {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+    }
+    .contact-row { display: grid; grid-template-columns: 120px 1fr; gap: 10px; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,.06); }
+    .contact-row:last-child { border-bottom: 0; }
+    .label { color: #7f90a5; font-size: 14px; }
+    .value { color: var(--text); font-size: 15px; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 26px;
+      padding: 28px 0 40px;
+      color: var(--muted);
+      font-size: 13px;
       text-align: center;
     }
+    .footer-links { margin-bottom: 10px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
-    .close-video:hover {
-      background: darkred;
+    @media (max-width: 760px) {
+      .links { display: none; }
+      .grid { grid-template-columns: 1fr; }
+      .hero { padding-top: 80px; }
+      .contact-row { grid-template-columns: 1fr; gap: 2px; }
+      .label { font-size: 12px; }
     }
   </style>
 </head>
 <body>
+  <nav class="nav">
+    <a class="brand" href="#top"><span class="brand-mark">🦾</span><span>THAT'S MY AI GUY</span></a>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#founder">Founder</a>
+      <a href="#projects">Active Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="btn" href="https://www.botsetupcoach.com" target="_blank" rel="noopener">Go to BotSetupCoach</a>
+  </nav>
 
-  <!-- Fillout Form Fullscreen -->
-  <div class="form-container">
-    <div
-      class="fillout-fullscreen"
-      data-fillout-id="dvRdAub7obus"
-      data-fillout-embed-type="fullscreen"
-      data-fillout-inherit-parameters
-    ></div>
-  </div>
+  <header class="hero" id="top">
+    <div class="wrap">
+      <h1>We build one thing now: <span>BotSetupCoach.com</span></h1>
+      <p class="sub">That's My AI Guy is focused on helping business owners install a private AI operating system that actually runs their workflows, not just one-off prompts.</p>
+      <a class="btn" href="https://www.botsetupcoach.com" target="_blank" rel="noopener">Book on BotSetupCoach</a>
+    </div>
+  </header>
 
-  <!-- Floating Video -->
-  <div id="videoOverlay" class="video-overlay">
-    <button class="close-video" onclick="closeVideo()">✖</button>
-    <iframe id="loomVideo" 
-      src="https://www.loom.com/embed/129d875ee7e048adae966b2c300f9b8e?sid=1e8f55f0-0a96-43c3-a62f-4cc273974f15"
-      frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
-    </iframe>
-  </div>
+  <section id="about">
+    <div class="wrap">
+      <p class="eyebrow">Company</p>
+      <h2>Focused implementation. Clear offer. Real outcomes.</h2>
+      <p>We are no longer promoting multiple offers on this site. Our single active offer is BotSetupCoach: a done-with-you AI setup for business owners.</p>
+      <p>No affiliate offers. No lead reselling. Just direct implementation and support.</p>
+    </div>
+  </section>
 
-  <!-- Fillout Embed Script -->
-  <script src="https://server.fillout.com/embed/v1/"></script>
+  <section id="founder">
+    <div class="wrap grid">
+      <article class="card">
+        <p class="eyebrow">Founder</p>
+        <h3>Miguel Nieves</h3>
+        <p>Former Microsoft AI engineer, former U.S. Marine Corps Captain, and operator focused on practical AI systems for real businesses.</p>
+        <p>Background across AI engineering, operations, and workflow automation.</p>
+      </article>
+      <article class="card">
+        <p class="eyebrow">Approach</p>
+        <h3>Build first. Optimize quickly.</h3>
+        <p>We prioritize deployable systems over theory. The goal is working automation that saves time, improves execution, and compounds every week.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <p class="eyebrow">Active Projects</p>
+      <h2>Current primary offering</h2>
+      <div class="project-card">
+        <div class="project-window" aria-hidden="true">
+          <div class="project-window-head">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span style="margin-left:6px;">botsetupcoach.com</span>
+          </div>
+          <div class="project-window-body">
+            <div>
+              <div class="project-logo">🦾</div>
+              <div class="project-name">BotSetupCoach</div>
+              <div class="project-tag">Private AI setup for business owners</div>
+            </div>
+          </div>
+        </div>
+        <p style="margin-bottom:14px">Launches your AI operating system with implementation + support. This is the only offer currently promoted here.</p>
+        <a class="btn" href="https://www.botsetupcoach.com" target="_blank" rel="noopener">Visit BotSetupCoach.com</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <p class="eyebrow">Business identity</p>
+      <h2>Contact and business details</h2>
+      <div class="contact">
+        <div class="contact-row">
+          <div class="label">Business Address</div>
+          <div class="value">30 N Gould St Ste R, Sheridan, Wyoming, 82801</div>
+        </div>
+        <div class="contact-row">
+          <div class="label">Business Email</div>
+          <div class="value"><a href="mailto:miguel@thatsmyaiguy.com">miguel@thatsmyaiguy.com</a></div>
+        </div>
+        <div class="contact-row">
+          <div class="label">Business Phone</div>
+          <div class="value"><a href="tel:+16076085715">+1 607 608 5715</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Service</a>
+    </div>
+    <div>© <span id="year"></span> That's My AI Guy LLC. All rights reserved.</div>
+  </footer>
 
   <script>
-    function closeVideo() {
-      let videoModal = document.getElementById("videoOverlay");
-      let videoIframe = document.getElementById("loomVideo");
-
-      // Hide the video overlay
-      videoModal.style.display = "none";
-
-      // Force video to reset by removing and re-adding the src
-      setTimeout(() => {
-        videoIframe.src = videoIframe.src;
-      }, 300); // Small delay to ensure proper reload
-    }
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 
   <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="69fb18245b108d5fa5ecd22a" data-source="WEB_USER"></script>
-
 </body>
 </html>
