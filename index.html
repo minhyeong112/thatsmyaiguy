@@ -3,114 +3,106 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>That's My AI Guy | Bot Setup Coach</title>
-  <meta name="description" content="That's My AI Guy helps business owners implement a private AI operating system through BotSetupCoach.com." />
+  <title>That's My AI Guy - AI Automation & Business Solutions</title>
+  <meta name="description" content="Transform your business with AI automation. Brand & website launch, custom chatbots, CRM setup, and AI consulting." />
 
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
   <link rel="shortcut icon" href="favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
   <link rel="manifest" href="site.webmanifest" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Teko:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --bg: #06080b;
-      --card: #10161d;
-      --border: #24323d;
-      --text: #e5edf7;
-      --muted: #96a5b7;
+      --bg: #07090c;
+      --card: #11161c;
+      --muted: #9aa8ba;
+      --text: #f4f7fb;
+      --border: #22313d;
       --primary: #70dbc2;
       --primary-2: #9be9d9;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: Inter, -apple-system, sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.65;
+      overflow-x: hidden;
     }
     a { color: var(--primary-2); text-decoration: none; }
     a:hover { text-decoration: underline; }
-
-    .wrap { width: min(1040px, 92vw); margin: 0 auto; }
+    .wrap { width: min(1100px, 92vw); margin: 0 auto; }
 
     .nav {
       position: sticky;
       top: 12px;
-      z-index: 20;
+      z-index: 40;
+      width: min(1100px, 92vw);
       margin: 12px auto 0;
-      width: min(1040px, 92vw);
-      border: 1px solid rgba(155, 233, 217, .28);
-      background: rgba(12, 18, 24, .68);
-      backdrop-filter: blur(14px);
+      border: 1px solid rgba(155,233,217,.24);
       border-radius: 14px;
+      background: rgba(10,14,18,.68);
+      backdrop-filter: blur(12px);
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 10px 12px;
-      gap: 10px;
+      gap: 12px;
     }
-    .brand { display: inline-flex; align-items: center; gap: 8px; color: var(--text); font-weight: 700; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--text); }
     .brand:hover { text-decoration: none; }
-    .brand-mark { font-size: 20px; }
-    .links { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
-    .links a { color: var(--muted); font-size: 14px; padding: 7px 10px; border-radius: 999px; }
-    .links a:hover { color: var(--text); background: rgba(112, 219, 194, .1); text-decoration: none; }
+    .brand img { width: 34px; height: 34px; border-radius: 9px; object-fit: cover; }
+    .brand span { font-family: Teko, sans-serif; letter-spacing: .03em; font-size: 30px; line-height: 1; }
+    .links { display: flex; gap: 8px; flex-wrap: wrap; }
+    .links a { color: var(--muted); font-size: 14px; padding: 8px 10px; border-radius: 999px; }
+    .links a:hover { color: var(--text); background: rgba(112,219,194,.1); text-decoration: none; }
+
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: 0;
-      border-radius: 10px;
-      padding: 11px 16px;
-      font-weight: 700;
-      background: var(--primary);
-      color: #0c1117;
-      box-shadow: 0 6px 24px rgba(112, 219, 194, .28);
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 12px 16px; border-radius: 10px; border: 0; font-weight: 700;
+      background: var(--primary); color: #081015;
+      box-shadow: 0 8px 26px rgba(112,219,194,.28);
     }
-    .btn:hover { background: #8de5d3; text-decoration: none; }
+    .btn:hover { background: #89e4d2; text-decoration: none; }
+    .btn-outline {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 12px 16px; border-radius: 10px; border: 1px solid var(--border);
+      color: var(--text); background: transparent; font-weight: 600;
+    }
+    .btn-outline:hover { border-color: var(--primary); text-decoration: none; }
 
     .hero {
-      padding: 96px 0 64px;
+      padding: 90px 0 70px;
+      background: radial-gradient(ellipse at 50% 20%, rgba(112,219,194,.14), transparent 66%);
       text-align: center;
-      background: radial-gradient(ellipse at 50% 24%, rgba(112,219,194,.16), transparent 66%);
     }
     h1 {
-      font-size: clamp(2rem, 5.5vw, 3.7rem);
-      line-height: 1.1;
-      letter-spacing: -.03em;
-      max-width: 900px;
-      margin: 0 auto 14px;
-    }
-    h1 span { color: var(--primary-2); }
-    .sub {
-      max-width: 780px;
-      margin: 0 auto 28px;
-      color: var(--muted);
-      font-size: clamp(1rem, 2.1vw, 1.15rem);
-    }
-
-    section { padding: 54px 0; }
-    .eyebrow {
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: .11em;
-      font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-    h2 {
-      font-size: clamp(1.4rem, 3.5vw, 2rem);
-      line-height: 1.2;
+      font-family: Teko, sans-serif;
+      letter-spacing: .01em;
+      font-size: clamp(2.4rem, 8vw, 5rem);
+      line-height: .98;
       margin-bottom: 12px;
-      letter-spacing: -.02em;
     }
+    .hero-sub {
+      max-width: 820px;
+      margin: 0 auto 26px;
+      color: var(--muted);
+      font-size: clamp(1rem, 2.2vw, 1.18rem);
+    }
+    .hero-ctas { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+
+    section { padding: 56px 0; }
+    .eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: .11em; color: #8194aa; margin-bottom: 8px; font-weight: 700; }
+    h2 { font-size: clamp(1.4rem, 3.5vw, 2.05rem); line-height: 1.2; margin-bottom: 12px; letter-spacing: -.02em; }
     p { color: var(--muted); margin-bottom: 12px; }
 
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -119,112 +111,124 @@
     }
     .card h3 { margin-bottom: 8px; font-size: 18px; }
 
-    .project-card {
-      border: 1px solid rgba(155, 233, 217, .32);
+    .list { list-style: none; display: grid; gap: 12px; margin-top: 14px; }
+    .list li {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      color: #d7e1ed;
+      font-size: 15px;
+    }
+
+    .project {
+      background: linear-gradient(180deg, rgba(112,219,194,.1), rgba(112,219,194,.03));
+      border: 1px solid rgba(155,233,217,.28);
       border-radius: 16px;
-      background: linear-gradient(180deg, rgba(112,219,194,.08), rgba(112,219,194,.03));
       padding: 18px;
     }
-    .project-window {
-      background: #0b1116;
-      border: 1px solid #2a3c49;
+    .tile {
+      margin: 12px 0 14px;
+      border: 1px solid #29404d;
       border-radius: 12px;
       overflow: hidden;
-      margin: 12px 0 14px;
+      background: #0c1218;
     }
-    .project-window-head {
+    .tile-head {
       height: 34px;
+      border-bottom: 1px solid #223542;
       display: flex;
       align-items: center;
       gap: 8px;
       padding: 0 12px;
-      border-bottom: 1px solid #22303a;
-      color: #8aa0b5;
+      color: #84a0b6;
       font-size: 12px;
     }
-    .dot { width: 8px; height: 8px; border-radius: 999px; background: #334553; }
-    .project-window-body {
-      padding: 18px;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      min-height: 140px;
-    }
-    .project-logo { font-size: 32px; margin-bottom: 8px; }
-    .project-name { font-size: 20px; font-weight: 800; letter-spacing: -.01em; }
-    .project-tag { color: var(--muted); font-size: 14px; }
+    .dot { width: 8px; height: 8px; border-radius: 999px; background: #344b5b; }
+    .tile-body { min-height: 140px; display: grid; place-items: center; text-align: center; padding: 18px; }
+    .tile-logo { font-size: 34px; margin-bottom: 8px; }
+    .tile-name { font-size: 22px; font-weight: 800; letter-spacing: -.02em; }
+    .tile-sub { color: #9cb0c5; font-size: 14px; }
 
-    .contact {
+    .business {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 14px;
       padding: 18px;
     }
-    .contact-row { display: grid; grid-template-columns: 120px 1fr; gap: 10px; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,.06); }
-    .contact-row:last-child { border-bottom: 0; }
-    .label { color: #7f90a5; font-size: 14px; }
-    .value { color: var(--text); font-size: 15px; }
+    .row { display: grid; grid-template-columns: 150px 1fr; gap: 10px; padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,.06); }
+    .row:last-child { border-bottom: 0; }
+    .row .k { color: #8297ad; font-size: 14px; }
+    .row .v { color: var(--text); font-size: 15px; }
 
     footer {
+      margin-top: 22px;
       border-top: 1px solid var(--border);
-      margin-top: 26px;
       padding: 28px 0 40px;
-      color: var(--muted);
-      font-size: 13px;
       text-align: center;
+      color: #7f93ab;
+      font-size: 13px;
     }
-    .footer-links { margin-bottom: 10px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; margin-bottom: 10px; }
 
-    @media (max-width: 760px) {
+    @media (max-width: 820px) {
       .links { display: none; }
-      .grid { grid-template-columns: 1fr; }
-      .hero { padding-top: 80px; }
-      .contact-row { grid-template-columns: 1fr; gap: 2px; }
-      .label { font-size: 12px; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .row { grid-template-columns: 1fr; gap: 2px; }
+      .brand span { font-size: 25px; }
     }
   </style>
 </head>
 <body>
   <nav class="nav">
-    <a class="brand" href="#top"><span class="brand-mark">🦾</span><span>THAT'S MY AI GUY</span></a>
+    <a href="#top" class="brand">
+      <img src="favicon.svg" alt="That's My AI Guy logo" />
+      <span>THAT'S MY AI GUY</span>
+    </a>
     <div class="links">
       <a href="#about">About</a>
       <a href="#founder">Founder</a>
       <a href="#projects">Active Projects</a>
       <a href="#contact">Contact</a>
     </div>
-    <a class="btn" href="https://www.botsetupcoach.com" target="_blank" rel="noopener">Go to BotSetupCoach</a>
+    <a class="btn" href="https://cal.com/aiguy/discovery" target="_blank" rel="noopener">Book a Free Call</a>
   </nav>
 
   <header class="hero" id="top">
     <div class="wrap">
-      <h1>We build one thing now: <span>BotSetupCoach.com</span></h1>
-      <p class="sub">That's My AI Guy is focused on helping business owners install a private AI operating system that actually runs their workflows, not just one-off prompts.</p>
-      <a class="btn" href="https://www.botsetupcoach.com" target="_blank" rel="noopener">Book on BotSetupCoach</a>
+      <h1>Automate Your Business.<br>Amplify Your Results.</h1>
+      <p class="hero-sub">We help founders and teams implement practical AI systems that save time, improve execution, and increase operating leverage.</p>
+      <div class="hero-ctas">
+        <a class="btn" href="https://cal.com/aiguy/discovery" target="_blank" rel="noopener">Book a Free AI Consultation</a>
+        <a class="btn-outline" href="#projects">See Active Project</a>
+      </div>
     </div>
   </header>
 
   <section id="about">
     <div class="wrap">
-      <p class="eyebrow">Company</p>
-      <h2>Focused implementation. Clear offer. Real outcomes.</h2>
-      <p>We are no longer promoting multiple offers on this site. Our single active offer is BotSetupCoach: a done-with-you AI setup for business owners.</p>
-      <p>No affiliate offers. No lead reselling. Just direct implementation and support.</p>
+      <p class="eyebrow">What we do</p>
+      <h2>AI automation and implementation for real business outcomes</h2>
+      <ul class="list">
+        <li>Brand and website launch support</li>
+        <li>Custom AI assistant and workflow automation</li>
+        <li>CRM automation, follow-up systems, and operational support</li>
+      </ul>
     </div>
   </section>
 
   <section id="founder">
-    <div class="wrap grid">
+    <div class="wrap grid-2">
       <article class="card">
         <p class="eyebrow">Founder</p>
         <h3>Miguel Nieves</h3>
-        <p>Former Microsoft AI engineer, former U.S. Marine Corps Captain, and operator focused on practical AI systems for real businesses.</p>
-        <p>Background across AI engineering, operations, and workflow automation.</p>
+        <p>Former Microsoft AI engineer, former U.S. Marine Corps Captain, and founder of That's My AI Guy.</p>
+        <p>Focus: practical implementation, clean systems, and measurable execution gains.</p>
       </article>
       <article class="card">
-        <p class="eyebrow">Approach</p>
-        <h3>Build first. Optimize quickly.</h3>
-        <p>We prioritize deployable systems over theory. The goal is working automation that saves time, improves execution, and compounds every week.</p>
+        <p class="eyebrow">How we work</p>
+        <h3>Simple, direct, execution-first</h3>
+        <p>We keep strategy and implementation tightly connected so your systems are useful in the real world, not just in demos.</p>
       </article>
     </div>
   </section>
@@ -232,22 +236,19 @@
   <section id="projects">
     <div class="wrap">
       <p class="eyebrow">Active Projects</p>
-      <h2>Current primary offering</h2>
-      <div class="project-card">
-        <div class="project-window" aria-hidden="true">
-          <div class="project-window-head">
-            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-            <span style="margin-left:6px;">botsetupcoach.com</span>
-          </div>
-          <div class="project-window-body">
+      <h2>Current spotlight project</h2>
+      <div class="project">
+        <div class="tile" aria-hidden="true">
+          <div class="tile-head"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span style="margin-left:6px">botsetupcoach.com</span></div>
+          <div class="tile-body">
             <div>
-              <div class="project-logo">🦾</div>
-              <div class="project-name">BotSetupCoach</div>
-              <div class="project-tag">Private AI setup for business owners</div>
+              <div class="tile-logo">🦾</div>
+              <div class="tile-name">BotSetupCoach</div>
+              <div class="tile-sub">Private AI setup for business owners</div>
             </div>
           </div>
         </div>
-        <p style="margin-bottom:14px">Launches your AI operating system with implementation + support. This is the only offer currently promoted here.</p>
+        <p>This is the active build we’re showcasing right now. Visit BotSetupCoach to view the current offer and booking flow.</p>
         <a class="btn" href="https://www.botsetupcoach.com" target="_blank" rel="noopener">Visit BotSetupCoach.com</a>
       </div>
     </div>
@@ -255,21 +256,12 @@
 
   <section id="contact">
     <div class="wrap">
-      <p class="eyebrow">Business identity</p>
-      <h2>Contact and business details</h2>
-      <div class="contact">
-        <div class="contact-row">
-          <div class="label">Business Address</div>
-          <div class="value">30 N Gould St Ste R, Sheridan, Wyoming, 82801</div>
-        </div>
-        <div class="contact-row">
-          <div class="label">Business Email</div>
-          <div class="value"><a href="mailto:miguel@thatsmyaiguy.com">miguel@thatsmyaiguy.com</a></div>
-        </div>
-        <div class="contact-row">
-          <div class="label">Business Phone</div>
-          <div class="value"><a href="tel:+16076085715">+1 607 608 5715</a></div>
-        </div>
+      <p class="eyebrow">Business Details</p>
+      <h2>Contact</h2>
+      <div class="business">
+        <div class="row"><div class="k">Address</div><div class="v">30 N Gould St Ste R, Sheridan, Wyoming, 82801</div></div>
+        <div class="row"><div class="k">Email</div><div class="v"><a href="mailto:miguel@thatsmyaiguy.com">miguel@thatsmyaiguy.com</a></div></div>
+        <div class="row"><div class="k">Phone</div><div class="v"><a href="tel:+16076085715">+1 607 608 5715</a></div></div>
       </div>
     </div>
   </section>
@@ -279,12 +271,10 @@
       <a href="/privacy">Privacy Policy</a>
       <a href="/terms">Terms of Service</a>
     </div>
-    <div>© <span id="year"></span> That's My AI Guy LLC. All rights reserved.</div>
+    <div>© <span id="year"></span> That's My AI Guy LLC</div>
   </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
   <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="69fb18245b108d5fa5ecd22a" data-source="WEB_USER"></script>
 </body>
