@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>That's My AI Guy - AI Automation & Business Solutions</title>
+  <title>That's My AI Guy — AI Automation & Business Solutions</title>
   <meta name="description" content="Transform your business with AI automation. Brand & website launch, custom chatbots, CRM setup, and AI consulting." />
 
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -18,13 +18,13 @@
 
   <style>
     :root {
-      --bg: #07090c;
-      --card: #11161c;
+      --bg: #050505;
+      --card: #0f1115;
       --muted: #9aa8ba;
       --text: #f4f7fb;
-      --border: #22313d;
-      --primary: #70dbc2;
-      --primary-2: #9be9d9;
+      --border: #2a2f3b;
+      --primary: #facc15;
+      --primary-2: #fde68a;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -45,9 +45,9 @@
       z-index: 40;
       width: min(1100px, 92vw);
       margin: 12px auto 0;
-      border: 1px solid rgba(155,233,217,.24);
+      border: 1px solid rgba(250,204,21,.22);
       border-radius: 14px;
-      background: rgba(10,14,18,.68);
+      background: rgba(7,8,10,.75);
       backdrop-filter: blur(12px);
       display: flex;
       align-items: center;
@@ -61,15 +61,15 @@
     .brand span { font-family: Teko, sans-serif; letter-spacing: .03em; font-size: 30px; line-height: 1; }
     .links { display: flex; gap: 8px; flex-wrap: wrap; }
     .links a { color: var(--muted); font-size: 14px; padding: 8px 10px; border-radius: 999px; }
-    .links a:hover { color: var(--text); background: rgba(112,219,194,.1); text-decoration: none; }
+    .links a:hover { color: var(--text); background: rgba(250,204,21,.12); text-decoration: none; }
 
     .btn {
       display: inline-flex; align-items: center; justify-content: center;
       padding: 12px 16px; border-radius: 10px; border: 0; font-weight: 700;
-      background: var(--primary); color: #081015;
-      box-shadow: 0 8px 26px rgba(112,219,194,.28);
+      background: var(--primary); color: #111;
+      box-shadow: 0 8px 26px rgba(250,204,21,.26);
     }
-    .btn:hover { background: #89e4d2; text-decoration: none; }
+    .btn:hover { background: #fde047; text-decoration: none; }
     .btn-outline {
       display: inline-flex; align-items: center; justify-content: center;
       padding: 12px 16px; border-radius: 10px; border: 1px solid var(--border);
@@ -79,7 +79,9 @@
 
     .hero {
       padding: 90px 0 70px;
-      background: radial-gradient(ellipse at 50% 20%, rgba(112,219,194,.14), transparent 66%);
+      background:
+        radial-gradient(ellipse at 50% 18%, rgba(250,204,21,.20), transparent 62%),
+        radial-gradient(ellipse at 50% 32%, rgba(250,204,21,.10), transparent 72%);
       text-align: center;
     }
     h1 {
@@ -122,33 +124,33 @@
     }
 
     .project {
-      background: linear-gradient(180deg, rgba(112,219,194,.1), rgba(112,219,194,.03));
-      border: 1px solid rgba(155,233,217,.28);
+      background: linear-gradient(180deg, rgba(250,204,21,.09), rgba(250,204,21,.03));
+      border: 1px solid rgba(250,204,21,.26);
       border-radius: 16px;
       padding: 18px;
     }
     .tile {
       margin: 12px 0 14px;
-      border: 1px solid #29404d;
+      border: 1px solid rgba(112,219,194,.42);
       border-radius: 12px;
       overflow: hidden;
-      background: #0c1218;
+      background: #0b1218;
     }
     .tile-head {
       height: 34px;
-      border-bottom: 1px solid #223542;
+      border-bottom: 1px solid rgba(112,219,194,.32);
       display: flex;
       align-items: center;
       gap: 8px;
       padding: 0 12px;
-      color: #84a0b6;
+      color: #9be9d9;
       font-size: 12px;
     }
-    .dot { width: 8px; height: 8px; border-radius: 999px; background: #344b5b; }
+    .dot { width: 8px; height: 8px; border-radius: 999px; background: #70dbc2; }
     .tile-body { min-height: 140px; display: grid; place-items: center; text-align: center; padding: 18px; }
     .tile-logo { font-size: 34px; margin-bottom: 8px; }
     .tile-name { font-size: 22px; font-weight: 800; letter-spacing: -.02em; }
-    .tile-sub { color: #9cb0c5; font-size: 14px; }
+    .tile-sub { color: #9be9d9; font-size: 14px; }
 
     .business {
       background: var(--card);
