@@ -1,0 +1,61 @@
+/* Custom styles for calendar integration */
+.calendar-wrapper {
+  --calendar-bg: #121212;
+  --calendar-text: #ffffff;
+  --calendar-accent: #fec934;
+
+  background-color: var(--calendar-bg);
+  color: var(--calendar-text);
+  font-family: var(--font-teko), sans-serif;
+}
+
+.calendar-wrapper iframe {
+  filter: invert(0.85) hue-rotate(180deg);
+}
+
+.calendar-header {
+  background-color: #000000;
+  border-bottom: 1px solid #333;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.calendar-footer {
+  background-color: #000000;
+  border-top: 1px solid #333;
+  padding: 1rem;
+  text-align: center;
+}
+
+.calendar-logo {
+  color: var(--calendar-accent);
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.calendar-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10;
+}
+
+.calendar-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(254, 201, 52, 0.3);
+  border-top-color: #fec934;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
