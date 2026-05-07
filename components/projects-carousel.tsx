@@ -1,118 +1,74 @@
 "use client"
 
-import { useState } from "react"
-import { Card, CardContent } from "@/components/ui/card"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { ChevronLeft, ChevronRight, Quote } from "lucide-react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
+import Image from "next/image"
 
-const testimonials = [
-  {
-    name: "Sarah J.",
-    position: "CEO, Technology Sector",
-    quote:
-      "Working with Miguel transformed our business. His Brand & Website Launch service had us up and running in just 2 days, and the AI chatbot he implemented increased our sales by 15% in just 6 weeks. Worth every penny!",
-    results: "15% sales increase in 6 weeks",
-    projectType: "Brand & Website Launch",
-  },
-  {
-    name: "David C.",
-    position: "Founder, Financial Services",
-    quote:
-      "The CRM setup and management service has been a game-changer for our business. Our lead conversion is up 22% and our team saves 20+ hours per week. Miguel's expertise in AI automation is unmatched.",
-    results: "22% increase in lead conversion",
-    projectType: "CRM Setup & Management",
-  },
-  {
-    name: "Jennifer M.",
-    position: "Marketing Director",
-    quote:
-      "We combined the Brand & Website Launch with the Custom Chat Bot service and saved $1,000. The ROI has been 4x our investment already. The website looks professional and the chatbot handles 80% of customer inquiries automatically.",
-    results: "400% ROI in first month",
-    projectType: "Brand & Website Launch + Chat Bot",
-  },
-  {
-    name: "Michael T.",
-    position: "Operations Manager",
-    quote:
-      "Miguel's custom AI automation consulting helped us identify and automate our inventory management process. The solution he implemented saved us $50K in the first quarter alone. Highly recommended!",
-    results: "$50K cost savings in first quarter",
-    projectType: "Custom AI Automation",
-  },
-  {
-    name: "Anonymous Client",
-    position: "Private Individual",
-    quote:
-      "Miguel built a custom AI tool that automatically takes down harassing posts about me on social media. My stress levels have dropped dramatically, and I can finally focus on my business again. I can't thank Miguel enough for giving me my peace of mind back.",
-    results: "90% reduction in online harassment",
-    projectType: "Custom AI Tool Development",
-  },
+const testimonialImages = [
+  "/images/testimonial-1.jpeg",
+  "/images/testimonial-2.jpeg",
+  "/images/testimonial-3.jpeg",
+  "/images/testimonial-4.jpeg",
+  "/images/testimonial-5.jpeg",
+  "/images/testimonial-6.jpeg",
 ]
 
 export function TestimonialsCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0)
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonialImages.length)
+    }, 5000)
+
+    return () => clearInterval(interval)
+  }, [])
+
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 2 >= testimonials.length ? 0 : prevIndex + 2))
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonialImages.length)
   }
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 2 < 0 ? Math.max(0, testimonials.length - 2) : prevIndex - 2))
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonialImages.length) % testimonialImages.length)
   }
 
-  const visibleTestimonials = testimonials.slice(currentIndex, currentIndex + 2)
-
   return (
-    <section className="py-20 bg-zinc-900" id="testimonials">
+    <section className="py-20 bg-gradient-to-b from-zinc-900 to-black" id="testimonials">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="font-teko text-5xl md:text-6xl text-white mb-4">TESTIMONIALS</h2>
-          <p className="text-zinc-400 max-w-2xl mx-auto">
-            Don't just take our word for it. Here's what our clients are saying about working with us:
+          <div className="flex flex-col items-center justify-center mb-4">
+            <Image
+              src="/testimonials-logo.png"
+              alt="Testimonials"
+              width={96}
+              height={96}
+              className="animate-bounce mb-4"
+            />
+            <h2 className="font-teko text-5xl md:text-6xl text-white tracking-tight">TESTIMONIALS</h2>
+          </div>
+          <p className="text-zinc-300 max-w-2xl mx-auto">
+            Don&apos;t just take our word for it. Here&apos;s what our clients are saying about working with us:
           </p>
           <div className="h-1 w-20 bg-primary mx-auto mt-6"></div>
         </div>
 
-        <div className="relative">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {visibleTestimonials.map((testimonial, index) => (
-              <Card
-                key={index}
-                className="bg-black border-zinc-800 hover:border-primary transition-all duration-300 relative overflow-hidden"
-              >
-                {/* Project type in background */}
-                <div className="absolute top-0 right-0 bg-primary/10 px-4 py-1 rounded-bl-lg text-primary text-sm font-bold">
-                  {testimonial.projectType}
-                </div>
-
-                <CardContent className="p-8">
-                  <div className="flex flex-col h-full">
-                    <div className="mb-6">
-                      <Quote className="text-primary h-12 w-12 opacity-50" />
-                    </div>
-
-                    <p className="text-white text-lg italic mb-8">"{testimonial.quote}"</p>
-
-                    <div className="mt-auto">
-                      <div>
-                        <p className="text-white font-bold">{testimonial.name}</p>
-                        <p className="text-zinc-400">{testimonial.position}</p>
-                      </div>
-
-                      <div className="mt-4 bg-zinc-900 p-3 rounded-lg">
-                        <p className="text-primary font-bold">Results: {testimonial.results}</p>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+        <div className="relative max-w-4xl mx-auto">
+          <div className="relative aspect-[16/9] rounded-2xl overflow-hidden bg-zinc-900 border border-zinc-800">
+            <Image
+              src={testimonialImages[currentIndex] || "/placeholder.svg"}
+              alt={`Testimonial ${currentIndex + 1}`}
+              fill
+              className="object-contain"
+              priority={currentIndex === 0}
+            />
           </div>
 
           <div className="flex justify-center mt-8 gap-4">
             <Button
               variant="outline"
               size="icon"
-              className="rounded-full border-primary text-primary hover:bg-primary/10"
+              className="rounded-full border-primary text-primary hover:bg-primary/10 bg-transparent"
               onClick={prevSlide}
             >
               <ChevronLeft className="h-5 w-5" />
@@ -120,11 +76,24 @@ export function TestimonialsCarousel() {
             <Button
               variant="outline"
               size="icon"
-              className="rounded-full border-primary text-primary hover:bg-primary/10"
+              className="rounded-full border-primary text-primary hover:bg-primary/10 bg-transparent"
               onClick={nextSlide}
             >
               <ChevronRight className="h-5 w-5" />
             </Button>
+          </div>
+
+          <div className="flex justify-center mt-4 gap-2">
+            {testimonialImages.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  index === currentIndex ? "w-8 bg-primary" : "w-2 bg-zinc-600 hover:bg-zinc-500"
+                }`}
+                aria-label={`Go to testimonial ${index + 1}`}
+              />
+            ))}
           </div>
         </div>
       </div>
