@@ -10,13 +10,13 @@ export function ActiveProjectSpotlight() {
           <div className="rounded-xl border border-primary/40 bg-zinc-900 p-6 md:p-7">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <div>
-                <h3 className="font-teko text-4xl text-primary leading-none">BotSetupCoach</h3>
+                <h3 className="font-teko text-4xl text-primary leading-none">BotLaunch</h3>
                 <p className="text-zinc-300 mt-2">
-                  A focused setup experience for business owners who want a private AI assistant running fast.
+                  A focused implementation experience for business owners who want AI and CRM systems working fast.
                 </p>
               </div>
               <Link
-                href="https://www.botsetupcoach.com"
+                href="https://www.botlaunch.pro"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-md px-5 py-2.5 bg-primary hover:bg-primary/90 text-black font-teko text-xl"
