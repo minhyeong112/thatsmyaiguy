@@ -9,7 +9,7 @@ export default function Home() {
         id="ghl-chat-widget"
         src="https://widgets.leadconnectorhq.com/loader.js"
         data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
-        data-widget-id="69fb18245b108d5fa5ecd22a"
+        data-widget-id="6a2a823541d7d22db1df636f"
         data-source="WEB_USER"
         strategy="afterInteractive"
       />
